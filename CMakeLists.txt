@@ -8,6 +8,7 @@ FILE(GLOB BOT_SOURCE_FILES
 )
 
 add_library(CompileTests STATIC ${BOT_SOURCE_FILES})
+target_compile_options(CompileTests PRIVATE -std=gnu++17)
 
 include_directories(src)
 
