@@ -16,9 +16,10 @@ FILE(GLOB SERVER_SOURCE_FILES
     src/bots/*.h
 )
 
-add_library(bot SHARED ${BOT_SOURCE_FILES})
+add_library(bot SHARED ${BOT_SOURCE_FILES} ${SERVER_SOURCE_FILES})
 add_executable(server ${SERVER_SOURCE_FILES})
 
 target_compile_options(server PRIVATE -rdynamic)
+target_compile_options(bot PRIVATE -rdynamic)
 
 

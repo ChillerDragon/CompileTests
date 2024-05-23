@@ -1,9 +1,16 @@
 #include <cstdio>
 
 #include <bots/bot.h>
+#include <server/server.h>
 
-void BotTick()
+extern "C" {
+
+void BotTick(CCollision *pCollision)
 {
-	puts("bot tick");
+	printf(
+		"bot tick tile(0, 0)=%d tile(1, 1)=%d\n",
+		pCollision->GetTile(0, 0),
+		pCollision->GetTile(1, 1));
 }
 
+}
