@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <dlfcn.h>
 
+#include <chrono>
+#include <thread>
+
 #include <bots/bot.h>
 #include <server/server.h>
 
@@ -51,6 +54,11 @@ void CCollision::Init()
 	SetTile(1, 1, 11);
 }
 
+void Sleep(int Miliseconds)
+{
+	std::this_thread::sleep_for(std::chrono::milliseconds(Miliseconds));
+}
+
 int main()
 {
 	puts("starting server ...");
@@ -71,6 +79,8 @@ int main()
 		{
 			BotTick(&Col);
 		}
+
+		Sleep(20);
 	}
 }
 
